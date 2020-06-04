@@ -1,0 +1,41 @@
+{
+  "name": "apinews",
+  "version": "0.0.1",
+  "description": "api for working with articles and authorization",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js NODE_ENV=production",
+    "dev": "nodemon app.js NODE_ENV=develop"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RA404/apiNews.git"
+  },
+  "author": "Repin Andrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RA404/apiNews/issues"
+  },
+  "homepage": "https://github.com/RA404/apiNews#readme",
+  "devDependencies": {
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-winston": "^4.0.3",
+    "helmet": "^3.22.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.17",
+    "validator": "^13.0.0",
+    "winston": "^3.2.1"
+  },
+  "keywords": []
+}
