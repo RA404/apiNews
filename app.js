@@ -6,6 +6,10 @@ const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 
 const { PORT, DATABASE_URL } = require('./config.js');
+const auth = require('./middlewares/auth');
+const routes = require('./routes');
+const signup = require('./routes/signup');
+const signin = require('./routes/signin');
 
 const app = express();
 
@@ -20,6 +24,10 @@ app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/signin', signin);
+app.use('/signup', signup);
+app.use(auth.auth);
+app.use('/', routes);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
