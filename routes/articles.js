@@ -1,5 +1,5 @@
 const articlesRouter = require('express').Router();
-const joi = require('@hapi/joi');
+const joi = require('joi');
 const { findAll, deleteCard, createCard } = require('../controllers/articles');
 const schemaArticles = require('../schemas/articles');
 

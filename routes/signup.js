@@ -1,5 +1,5 @@
 const signupRouter = require('express').Router();
-const joi = require('@hapi/joi');
+const joi = require('joi');
 
 const { createUser } = require('../controllers/users');
 
