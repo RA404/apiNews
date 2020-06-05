@@ -5,8 +5,8 @@ const userModel = require('../models/user');
 const ErrorNotFound = require('../errors/ErrorNotFound');
 
 module.exports.findMe = (req, res, next) => {
-  userModel.findById({ _id: req.params.id })
-    .orFail(() => new ErrorNotFound({ message: `User with id '${req.params.id}' not found` }))
+  userModel.findById({ _id: req.user._id })
+    .orFail(() => new ErrorNotFound({ message: `User with id '${req.user.id}' not found` }))
     .then((user) => res.send({ data: user }))
     .catch(next);
 };
