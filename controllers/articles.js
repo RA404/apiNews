@@ -13,7 +13,7 @@ module.exports.deleteArticles = (req, res, next) => {
     _id: req.params.id,
     owner: req.user._id,
   })
-    .orFail(() => new ErrorNotFound({ message: `Article with id '${req.params.id}' not found or you haven't permissions to delete this card` }))
+    .orFail(() => new ErrorNotFound({ message: `Article with id '${req.params.id}' not found or you haven't permissions to delete this article` }))
     .then(() => res.send({ message: 'Article deleted successfully' }))
     .catch(next);
 };
