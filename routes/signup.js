@@ -5,9 +5,8 @@ const { createUser } = require('../controllers/users');
 
 const schemaSignUp = require('../schemas/signup');
 
-// eslint-disable-next-line no-shadow
-const validate = (schemaSignUp) => (req, res, next) => {
-  joi.validate(req.body, schemaSignUp)
+const validate = (schema) => (req, res, next) => {
+  joi.validate(req.body, schema)
     .then(() => next())
     .catch(next);
 };

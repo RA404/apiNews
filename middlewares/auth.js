@@ -13,7 +13,6 @@ const verifyToken = (token) => new Promise((resolve, reject) => {
   });
 });
 
-// eslint-disable-next-line consistent-return
 module.exports.auth = async (req, res, next) => {
   try {
     if (req.cookies.jwt === undefined) {

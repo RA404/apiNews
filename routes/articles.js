@@ -3,9 +3,8 @@ const joi = require('joi');
 const { findAll, deleteArticles, createArticles } = require('../controllers/articles');
 const schemaArticles = require('../schemas/articles');
 
-// eslint-disable-next-line no-shadow
-const validate = (schemaCards) => (req, res, next) => {
-  joi.validate(req.body, schemaCards)
+const validate = (schema) => (req, res, next) => {
+  joi.validate(req.body, schema)
     .then(() => next())
     .catch(next);
 };

@@ -1,6 +1,5 @@
 const articlesModel = require('../models/articles');
 const ErrorNotFound = require('../errors/ErrorNotFound');
-// const ErrorForbidden = require('../errors/ErrorForbidden');
 
 module.exports.findAll = (req, res, next) => {
   articlesModel.find({})
