@@ -11,6 +11,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const signup = require('./routes/signup');
 const signin = require('./routes/signin');
 const routes = require('./routes');
+const limiter = require('./middlewares/limiter');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(limiter);
 app.use('/signin', signin);
 app.use('/signup', signup);
 app.use(auth.auth);
