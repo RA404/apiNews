@@ -36,10 +36,6 @@ app.use('/', routes);
 
 app.use(errorLogger);
 
-app.use((req, res) => {
-  res.status(404).send({ message: 'The requested resource is not found' });
-});
-
 app.use((err, req, res, next) => {
   const { statusCode = 500, message } = err;
   res.status(statusCode).send(statusCode === 500 ? { message: 'Internal Server Error' } : message);
