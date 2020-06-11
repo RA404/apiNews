@@ -4,8 +4,8 @@
   "description": "api for working with articles and authorization",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js NODE_ENV=production",
-    "dev": "nodemon app.js NODE_ENV=develop"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
