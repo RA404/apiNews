@@ -17,7 +17,7 @@ const limiter = require('./middlewares/limiter');
 const app = express();
 
 const corsOptions = {
-  origin: ['https://apinews.ra404.ru', 'http://localhost:3000'],
+  origin: ['http://api2.ra404.ru', 'http://localhost:3000'],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 204,
