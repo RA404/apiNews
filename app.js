@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const helmet = require('helmet');
 
 const { PORT, DATABASE_URL } = require('./config.js');
@@ -15,6 +16,15 @@ const limiter = require('./middlewares/limiter');
 
 const app = express();
 
+const corsOptions = {
+  origin: ['https://apinews.ra404.ru', 'http://localhost:3000'],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'x-requested-with', 'origin', 'accept', 'x-access-token', 'Authorization'],
+  credential: true,
+};
+
 mongoose.connect(DATABASE_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -24,6 +34,7 @@ mongoose.connect(DATABASE_URL, {
 
 app.use(requestLogger);
 
+app.use('*', cors(corsOptions));
 app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.json());
