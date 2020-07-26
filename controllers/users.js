@@ -47,6 +47,20 @@ module.exports.login = (req, res, next) => {
     .catch(next);
 };
 
-module.exports.signout = (res) => {
-  res.clearCookie('jwt');
+module.exports.signout = (req, res) => {
+  try {
+    res.clearCookie('jwt');
+  } catch (err) {
+    // console.log('something wrong with clearCookie function');
+  }
+  try {
+    res.cookie('', '', { expires: new Date(0) });
+  } catch (err) {
+    // console.log('something wrong with custom way to set cookies');
+  }
+  try {
+    res.redirect('/');
+  } catch (err) {
+    // console.log('something wrong with redirect');
+  }
 };
