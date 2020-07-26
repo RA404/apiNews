@@ -17,12 +17,8 @@ const limiter = require('./middlewares/limiter');
 const app = express();
 
 const corsOptions = {
-  origin: ['http://api2.ra404.ru', 'http://localhost:3000'],
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-  allowedHeaders: ['Content-Type', 'x-requested-with', 'origin', 'accept', 'x-access-token', 'Authorization'],
-  credential: true,
+  origin: ['http://api2.ra404.ru', 'http://localhost:3000', 'http://ra404.ru', 'http://apinews.ra404.ru', 'http://news.ra404.ru', 'https://api2.ra404.ru', 'https://localhost:3000', 'https://ra404.ru', 'https://apinews.ra404.ru', 'https://news.ra404.ru'],
+  credentials: true,
 };
 
 mongoose.connect(DATABASE_URL, {
