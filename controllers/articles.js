@@ -2,7 +2,7 @@ const articlesModel = require('../models/articles');
 const ErrorNotFound = require('../errors/ErrorNotFound');
 
 module.exports.findAll = (req, res, next) => {
-  articlesModel.find({})
+  articlesModel.find({ owner: req.user._id })
     .then((articles) => res.send({ data: articles }))
     .catch(next);
 };
