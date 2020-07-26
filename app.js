@@ -29,6 +29,8 @@ const corsOptions = {
     'https://ra404.ru',
     'https://apinews.ra404.ru',
     'https://news.ra404.ru',
+    'https://ra404.github.io/newsExplorer/',
+    'https://ra404.github.io/',
   ],
   credentials: true,
 };
