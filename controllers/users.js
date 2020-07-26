@@ -46,3 +46,7 @@ module.exports.login = (req, res, next) => {
     })
     .catch(next);
 };
+
+module.export.signout = (res) => {
+  res.clearCookie('jwt');
+};

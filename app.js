@@ -11,6 +11,7 @@ const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const signup = require('./routes/signup');
 const signin = require('./routes/signin');
+const signout = require('./routes/signout');
 const routes = require('./routes');
 const limiter = require('./middlewares/limiter');
 
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(limiter);
 app.use('/signin', signin);
 app.use('/signup', signup);
+app.use('/signout', signout);
 app.use(auth.auth);
 app.use('/', routes);
 
