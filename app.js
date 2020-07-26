@@ -18,7 +18,18 @@ const limiter = require('./middlewares/limiter');
 const app = express();
 
 const corsOptions = {
-  origin: ['http://api2.ra404.ru', 'http://localhost:3000', 'http://ra404.ru', 'http://apinews.ra404.ru', 'http://news.ra404.ru', 'https://api2.ra404.ru', 'https://localhost:3000', 'https://ra404.ru', 'https://apinews.ra404.ru', 'https://news.ra404.ru'],
+  origin: [
+    'http://api2.ra404.ru',
+    'http://localhost:3000',
+    'http://ra404.ru',
+    'http://apinews.ra404.ru',
+    'http://news.ra404.ru',
+    'https://api2.ra404.ru',
+    'https://localhost:3000',
+    'https://ra404.ru',
+    'https://apinews.ra404.ru',
+    'https://news.ra404.ru',
+  ],
   credentials: true,
 };
 
@@ -31,12 +42,12 @@ mongoose.connect(DATABASE_URL, {
 
 app.use(requestLogger);
 
-app.use('*', cors(corsOptions));
 app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(limiter);
+app.use('*', cors(corsOptions));
 app.use('/signin', signin);
 app.use('/signup', signup);
 app.use('/signout', signout);
