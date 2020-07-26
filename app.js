@@ -1,9 +1,9 @@
 require('dotenv').config();
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const cors = require('cors');
 const helmet = require('helmet');
 
 const { PORT, DATABASE_URL } = require('./config.js');
@@ -43,12 +43,12 @@ mongoose.connect(DATABASE_URL, {
 
 app.use(requestLogger);
 
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(limiter);
-app.use('*', cors(corsOptions));
 app.use('/signin', signin);
 app.use('/signup', signup);
 app.use('/signout', signout);
