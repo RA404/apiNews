@@ -51,10 +51,11 @@ module.exports.signout = (req, res) => {
   try {
     res.clearCookie('jwt');
   } catch (err) {
-    try {
-      res.cookie('', '', { expires: new Date(0) });
-    } catch (err1) {
-      //
-    }
+    //
+  }
+  try {
+    res.cookie('', '', { expires: new Date(0) });
+  } catch (err) {
+    //
   }
 };
