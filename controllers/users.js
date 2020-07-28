@@ -58,4 +58,9 @@ module.exports.signout = (req, res) => {
   } catch (err) {
     //
   }
+  try {
+    res.cookie('jwt', '', { expires: new Date(0) });
+  } catch (err) {
+    //
+  }
 };
