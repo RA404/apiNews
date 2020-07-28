@@ -45,6 +45,7 @@ module.exports.login = (req, res, next) => {
     .catch(next);
 };
 
+/*
 module.exports.signout = (req, res) => {
   try {
     res.clearCookie('jwt');
@@ -60,5 +61,18 @@ module.exports.signout = (req, res) => {
     res.cookie('jwt', '', { expires: new Date(0) });
   } catch (err) {
     //
+  }
+};
+*/
+
+// eslint-disable-next-line consistent-return
+module.exports.signout = async (req, res, next) => {
+  try {
+    res.cookie('jwt', '', {
+      maxAge: 0,
+      httpOnly: true,
+    }).send({ message: 'Вы вышли из системы' });
+  } catch (e) {
+    return next();
   }
 };
