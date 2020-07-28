@@ -40,7 +40,7 @@ module.exports.login = (req, res, next) => {
       res.cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
-        // sameSite: true,
+        sameSite: true,
         // domain: 'apinews.ra404.ru',
       }).send({ token }).end();
     })
@@ -51,16 +51,10 @@ module.exports.signout = (req, res) => {
   try {
     res.clearCookie('jwt');
   } catch (err) {
-    // console.log('something wrong with clearCookie function');
-  }
-  try {
-    res.cookie('', '', { expires: new Date(0) });
-  } catch (err) {
-    // console.log('something wrong with custom way to set cookies');
-  }
-  try {
-    res.redirect('/');
-  } catch (err) {
-    // console.log('something wrong with redirect');
+    try {
+      res.cookie('', '', { expires: new Date(0) });
+    } catch (err1) {
+      //
+    }
   }
 };
