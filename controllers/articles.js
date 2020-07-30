@@ -27,6 +27,7 @@ module.exports.createArticles = (req, res, next) => {
     link,
     image,
   } = req.body;
+  console.log(req.body);
   articlesModel.create({
     title,
     text,
