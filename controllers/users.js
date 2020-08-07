@@ -40,30 +40,12 @@ module.exports.login = (req, res, next) => {
       res.cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
+        sameSite: 'lax',
+        secure: true,
       }).send({ token }).end();
     })
     .catch(next);
 };
-
-/*
-module.exports.signout = (req, res) => {
-  try {
-    res.clearCookie('jwt');
-  } catch (err) {
-    //
-  }
-  try {
-    res.cookie('', '', { expires: new Date(0) });
-  } catch (err) {
-    //
-  }
-  try {
-    res.cookie('jwt', '', { expires: new Date(0) });
-  } catch (err) {
-    //
-  }
-};
-*/
 
 // eslint-disable-next-line consistent-return
 module.exports.signout = async (req, res, next) => {
