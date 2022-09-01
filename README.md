@@ -4,11 +4,11 @@
 # description
 Api для авторизации и работы с новостными карточками (добавлением, просмотром, удалением).
 
-Домены проекта:
-* https://apinews.ra404.ru
-* https://www.apinews.ra404.ru
-* http://apinews.ra404.ru
-* http://www.apinews.ra404.ru
+Домены проекта: 
+* https://apinews.ra404.ru Sorry, these links are no longer available
+* https://www.apinews.ra404.ru Sorry, these links are no longer available
+* http://apinews.ra404.ru Sorry, these links are no longer available
+* http://www.apinews.ra404.ru Sorry, these links are no longer available
 
 # API 
 * запрос GET /users/me возвращает залогиненного пользователя
@@ -36,7 +36,7 @@ Api для авторизации и работы с новостными кар
 * Из папки с проектом запустить команду npm run start
 
 # Project link 
-[https://github.com/RA404/apiNews](https://github.com/RA404/apiNews)
+[https://github.com/RA404/apiNews](https://github.com/RA404/apiNews) Sorry, these links are no longer available
 
 ## Version v0.0.1
 v0.0.1 - первая версия проекта
